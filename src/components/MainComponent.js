@@ -12,8 +12,8 @@ import { COMMENTS } from '../shared/comments';
 import { PARTNERS } from '../shared/partners';
 import { PROMOTIONS } from '../shared/promotions';
 
-
 class Main extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -22,12 +22,10 @@ class Main extends Component {
             partners: PARTNERS,
             promotions: PROMOTIONS
         };
-    };
-    // onCampsiteSelect(campsiteId) {
-    //     this.setState({selectedCampsite: campsiteId});
-    // }
+    }
 
     render() {
+
         const HomePage = () => {
             return (
                 <Home
@@ -38,9 +36,9 @@ class Main extends Component {
             );
         };
 
-        const CampsiteWithId = ({ match }) => {
+        const CampsiteWithId = ({match}) => {
             return (
-                <CampsiteInfo
+                <CampsiteInfo 
                     campsite={this.state.campsites.filter(campsite => campsite.id === +match.params.campsiteId)[0]}
                     comments={this.state.comments.filter(comment => comment.campsiteId === +match.params.campsiteId)}
                 />
@@ -54,9 +52,9 @@ class Main extends Component {
                     <Route path='/home' component={HomePage} />
                     <Route exact path='/directory' render={() => <Directory campsites={this.state.campsites} />} />
                     <Route path='/directory/:campsiteId' component={CampsiteWithId} />
-                    <Redirect to='/home' />
-                    <Route exact path='/contactus' component={Contact} />
                     <Route exact path='/aboutus' render={() => <About partners={this.state.partners} />} />
+                    <Route exact path='/contactus' component={Contact} />
+                    <Redirect to='/home' />
                 </Switch>
                 <Footer />
             </div>
