@@ -78,7 +78,7 @@ class Contact extends Component {
                     </div>
                     <div className="col-md-10">
 
-                        <Form onSubmit={values => this.handleSubmit(values)}>
+                        <Form model="feedbackForm" onSubmit={values => this.handleSubmit(values)}>
                             <Row className="form-group">
                                 <Label htmlFor="firstName" md={2}>First Name</Label>
                                 <Col md={10}>
